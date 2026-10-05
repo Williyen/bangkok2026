@@ -1,239 +1,514 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>大阪黃金週 2026</title>
+<title>曼谷．老城迴光｜10.8—10.11</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --ink: #1a1209;
-  --paper: #f5f0e8;
-  --vermillion: #c94030;
-  --gold: #b8922a;
-  --mist: #8a8478;
-  --cream: #ede8da;
-  --dark-paper: #2a2218;
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Noto Serif TC', serif; background:var(--paper); color:var(--ink); min-height:100vh; overflow-x:hidden; }
-body::before {
-  content:''; position:fixed; inset:0; pointer-events:none; z-index:1000;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); opacity:0.4;
-}
-/* ── HERO ── */
-.hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:8vw 10vw; position:relative; overflow:hidden; background:var(--dark-paper);}
-.hero::after { content:'大阪'; position:absolute; right:-2vw; top:50%; transform:translateY(-50%); font-size:clamp(200px,30vw,420px); font-weight:900; color:rgba(255,255,255,0.03); letter-spacing:-0.05em; line-height:1; pointer-events:none;}
-.hero-badge { font-family:'Cormorant Garamond', serif; font-style:italic; font-size:clamp(12px,1.2vw,16px); color:var(--gold); letter-spacing:0.3em; text-transform:uppercase; margin-bottom:2rem; opacity:0; animation:fadeUp 0.8s 0.2s forwards;}
-.hero-title { font-size:clamp(48px,8vw,120px); font-weight:900; color:var(--paper); line-height:0.95; letter-spacing:-0.03em; margin-bottom:1.5rem; opacity:0; animation:fadeUp 0.8s 0.4s forwards;}
-.hero-title span { color:var(--vermillion); }
-.hero-sub { font-size:clamp(14px,1.4vw,18px); color:var(--mist); font-weight:300; letter-spacing:0.05em; opacity:0; animation:fadeUp 0.8s 0.6s forwards; max-width:480px; line-height:1.8; }
-.hero-flights { margin-top:3rem; display:flex; gap:2rem; flex-wrap:wrap; opacity:0; animation:fadeUp 0.8s 0.8s forwards;}
-.flight-card { border:1px solid rgba(184,146,42,0.3); padding:1rem 1.5rem; background:rgba(184,146,42,0.05); transition:0.3s; cursor:pointer; }
-.flight-card:hover { background:rgba(201,64,48,0.08); transform:translateY(-2px);}
-.flight-label { font-family:'Cormorant Garamond', serif; font-size:11px; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.4rem; }
-.flight-info { font-size:clamp(16px,1.6vw,20px); color:var(--paper); font-weight:600; letter-spacing:0.05em;}
-.flight-time { font-size:12px; color:var(--mist); margin-top:0.2rem; font-weight:300;}
-.scroll-hint { position:absolute; bottom:3rem; left:10vw; display:flex; align-items:center; gap:1rem; color:var(--mist); font-size:11px; letter-spacing:0.3em; text-transform:uppercase; opacity:0; animation:fadeUp 0.8s 1.2s forwards;}
-.scroll-hint::before { content:''; width:40px; height:1px; background:var(--mist); animation:lineGrow 1s 1.5s forwards; transform-origin:left; transform:scaleX(0);}
-@keyframes lineGrow { to{ transform:scaleX(1); } }
-@keyframes fadeUp { to { opacity:1; transform:translateY(0);} from {opacity:0; transform:translateY(30px);} }
+  :root{
+    --dusk:#F7F4ED;
+    --dusk-deep:#EFEAE0;
+    --panel:#E8E2D5;
+    --gold:#8B6914;
+    --gold-soft:#7A5C12;
+    --lacquer:#8B2E2E;
+    --celadon:#3D6B62;
+    --plaster:#1A1A1A;
+    --plaster-dim:#4A4A4A;
+    --ink:#0B1220;
+    --line: rgba(26,26,26,0.15);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--dusk);
+    color:var(--plaster);
+    font-family:'Noto Sans TC', sans-serif;
+    font-weight:300;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--gold); color:#FFFFFF; }
 
-/* ── THEME STRIP ── */
-.theme-strip { background:var(--cream); padding:2.5rem 10vw; display:flex; gap:0; overflow-x:auto; border-bottom:1px solid rgba(138,132,120,0.15);}
-.theme-item { flex:1; min-width:160px; padding:0 2rem 0 0; border-right:1px solid rgba(138,132,120,0.2); margin-right:2rem; }
-.theme-item:last-child { border-right:none; margin-right:0;}
-.theme-day { font-family:'Cormorant Garamond', serif; font-size:11px; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.3rem;}
-.theme-title { font-size:15px; font-weight:600; color:var(--ink); margin-bottom:0.2rem;}
-.theme-sub { font-size:11px; color:var(--mist); font-style:italic; line-height:1.5;}
+  .wrap{ max-width:760px; margin:0 auto; padding:0 24px; }
 
-/* ── DAYS ── */
-.days-container { padding:6vw 10vw; background:var(--paper);}
-.day-card { display:grid; grid-template-columns:80px 1fr; position:relative; opacity:0; transform:translateY(30px); transition:opacity 0.6s, transform 0.6s;}
-.day-card.visible { opacity:1; transform:translateY(0);}
-.day-card:not(:last-child)::after { content:''; position:absolute; left:39px; top:72px; bottom:-1px; width:1px; background:linear-gradient(to bottom,var(--gold),var(--cream)); opacity:0.4;}
-.day-number { display:flex; flex-direction:column; align-items:center; padding-top:1.5rem; position:relative; z-index:1;}
-.day-dot { width:10px; height:10px; background:var(--vermillion); border-radius:50%; margin-bottom:0.5rem; box-shadow:0 0 0 4px var(--paper),0 0 0 5px rgba(201,64,48,0.3);}
-.day-num-text { font-family:'Cormorant Garamond', serif; font-size:11px; letter-spacing:0.2em; color:var(--mist); writing-mode:vertical-rl; text-orientation:mixed; transform:rotate(180deg); margin-top:0.5rem;}
-.day-content { padding:1.5rem 0 3rem 2rem;}
-.day-header { margin-bottom:1.5rem;}
-.day-date { font-family:'Cormorant Garamond', serif; font-style:italic; font-size:12px; letter-spacing:0.3em; color:var(--gold); text-transform:uppercase; margin-bottom:0.4rem;}
-.day-title { font-size:clamp(22px,3vw,36px); font-weight:900; color:var(--ink); line-height:1.1; letter-spacing:-0.02em;}
-.day-subtitle { font-size:13px; color:var(--mist); margin-top:0.3rem; font-style:italic;}
-.day-theme-tag { display:inline-block; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; padding:3px 10px; border:1px solid rgba(184,146,42,0.4); color:var(--gold); margin-top:0.5rem; font-family:'Cormorant Garamond', serif; font-style:italic;}
+  /* ---------- 瓷片鑲嵌紋理（鄭王廟意象）---------- */
+  .shard-strip{
+    height:34px;
+    width:100%;
+    background-image:
+      radial-gradient(circle at 8% 50%, var(--gold) 0 3px, transparent 3.5px),
+      radial-gradient(circle at 22% 30%, var(--celadon) 0 2px, transparent 2.5px),
+      radial-gradient(circle at 36% 65%, var(--lacquer) 0 3px, transparent 3.5px),
+      radial-gradient(circle at 50% 40%, var(--celadon) 0 2.5px, transparent 3px),
+      radial-gradient(circle at 64% 60%, var(--gold) 0 2px, transparent 2.5px),
+      radial-gradient(circle at 78% 35%, var(--lacquer) 0 3px, transparent 3.5px),
+      radial-gradient(circle at 92% 55%, var(--celadon) 0 2px, transparent 2.5px);
+    background-repeat: repeat-x;
+    background-size: 140px 34px;
+    opacity:0.65;
+  }
+  .shard-strip.dense{ background-size: 90px 34px; opacity:0.4; height:22px; }
 
-/* ── TIMELINE ── */
-.timeline { display:flex; flex-direction:column;}
-.timeline-item { display:grid; grid-template-columns:70px 1fr; gap:1rem; padding:0.6rem 0; border-bottom:1px solid rgba(138,132,120,0.1); transition:background 0.2s,padding 0.2s;}
-.timeline-item:hover { background:rgba(184,146,42,0.04); margin:0 -1rem; padding-left:1rem; padding-right:1rem;}
-.timeline-item:last-child { border-bottom:none;}
-.tl-time { font-family:'Cormorant Garamond', serif; font-size:13px; color:var(--gold); letter-spacing:0.05em; padding-top:0.15rem; white-space:nowrap;}
-.tl-place { font-size:15px; font-weight:600; color:var(--ink); margin-bottom:0.15rem;}
-.tl-place.highlight { color:var(--vermillion);}
-.tl-note { font-size:12px; color:var(--mist); font-weight:300; line-height:1.5;}
+  /* ---------- HERO ---------- */
+  header.hero{
+    position:relative;
+    padding:88px 0 56px;
+    text-align:center;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(139,105,20,0.10), transparent 60%),
+      var(--dusk-deep);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.32em;
+    color:var(--gold-soft);
+    text-transform:uppercase;
+  }
+  h1{
+    font-family:'Noto Serif TC', serif;
+    font-weight:900;
+    font-size:clamp(40px, 9vw, 64px);
+    letter-spacing:0.06em;
+    margin:18px 0 10px;
+    color:var(--plaster);
+  }
+  h1 span{ color:var(--gold-soft); }
+  .hero-sub{
+    font-size:15px;
+    color:var(--plaster-dim);
+    letter-spacing:0.05em;
+    max-width:440px;
+    margin:0 auto;
+  }
+  .route-line{
+    margin-top:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    color:var(--plaster);
+    flex-wrap:wrap;
+  }
+  .route-line .seg{ color:var(--gold-soft); }
+  .route-line .arrow{ color:var(--plaster-dim); }
+
+  /* ---------- 領航筆記 / 校正提示 ---------- */
+  .section{ padding:56px 0; }
+  .note-panel{
+    border:1px solid rgba(154,59,59,0.5);
+    background:linear-gradient(180deg, rgba(154,59,59,0.16), rgba(154,59,59,0.05));
+    border-radius:2px;
+    padding:26px 28px;
+    position:relative;
+  }
+  .note-panel::before{
+    content:"領航校正";
+    position:absolute;
+    top:-11px; left:24px;
+    background:var(--dusk);
+    padding:0 10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.24em;
+    color:var(--lacquer);
+  }
+  .note-panel h3{
+    font-family:'Noto Serif TC', serif;
+    font-weight:700;
+    font-size:18px;
+    color:var(--plaster);
+    margin-bottom:12px;
+  }
+  .note-panel p{ font-size:14.5px; color:var(--plaster-dim); margin-bottom:8px; }
+  .note-panel p:last-child{ margin-bottom:0; }
+  .note-panel b{ color:var(--gold-soft); font-weight:500; }
+
+  /* ---------- 日程卡 ---------- */
+  .day{ padding:64px 0 0; }
+  .day-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    margin-bottom:6px;
+  }
+  .tier{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--gold-soft);
+    letter-spacing:0.18em;
+    white-space:nowrap;
+  }
+  .day-head h2{
+    font-family:'Noto Serif TC', serif;
+    font-weight:700;
+    font-size:clamp(24px,5vw,30px);
+    color:var(--plaster);
+  }
+  .day-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--plaster-dim);
+    margin-bottom:6px;
+  }
+  .day-theme{
+    font-size:14px;
+    color:var(--celadon);
+    margin-bottom:28px;
+    letter-spacing:0.04em;
+  }
+
+  .log{ border-left:1px solid var(--line); padding-left:0; }
+  .entry{
+    position:relative;
+    padding:0 0 30px 30px;
+    border-left:1px solid var(--line);
+    margin-left:6px;
+  }
+  .entry:last-child{ border-left:1px solid transparent; padding-bottom:4px; }
+  .entry::before{
+    content:"";
+    position:absolute;
+    left:-5px; top:4px;
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 0 3px var(--dusk);
+  }  .entry .time{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--gold-soft);
+    letter-spacing:0.06em;
+    display:block;
+    margin-bottom:4px;
+  }
+  .entry .what{
+    font-size:16px;
+    color:var(--plaster);
+    font-weight:400;
+    margin-bottom:4px;
+  }
+  .entry .note{
+    font-size:13.5px;
+    color:var(--plaster-dim);
+    line-height:1.7;
+  }
+
+  /* ---------- 回程卡 ---------- */
+  .depart-card{
+    margin-top:64px;
+    border:1px solid var(--line);
+    background:var(--panel);
+    padding:32px 28px;
+    border-radius:2px;
+  }
+  .depart-card .eyebrow{ margin-bottom:14px; display:block; }
+  .flight-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:15px;
+    color:var(--plaster);
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .flight-row .code{ color:var(--gold-soft); }
+
+  footer{
+    text-align:center;
+    padding:60px 24px 80px;
+    color:var(--plaster-dim);
+    font-size:13px;
+    letter-spacing:0.05em;
+  }
+  footer .mark{ color:var(--gold-soft); font-family:'Noto Serif TC', serif; font-size:15px; margin-bottom:8px; display:block; }
+
+  @media (max-width:480px){
+    header.hero{ padding:64px 0 40px; }
+    .section{ padding:40px 0; }
+    .day{ padding:48px 0 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-badge">黃金週 2026</div>
-  <div class="hero-title">大阪 <span>之旅</span></div>
-  <div class="hero-sub">五天四夜行程安排，含景點、美食、航班與地圖互動</div>
-  <div class="hero-flights">
-    <div class="flight-card">
-      <div class="flight-label">去程</div>
-      <div class="flight-info">台北 → 大阪</div>
-      <div class="flight-time">5/1 07:00 出發</div>
-    </div>
-    <div class="flight-card">
-      <div class="flight-label">回程</div>
-      <div class="flight-info">大阪 → 台北</div>
-      <div class="flight-time">5/5 18:30 出發</div>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">VOYAGE LOG · BANGKOK</div>
+    <h1>曼谷．<span>老城迴光</span></h1>
+    <p class="hero-sub">從臥佛寺的金身、大皇宮的鎏金，到瑪哈納功的城市天際——老城與新城交錯的曼谷記憶層。</p>
+    <div class="route-line">
+      <span class="seg">TPE 18:30</span><span class="arrow">→</span><span class="seg">DMK 21:20</span>
+      <span class="arrow" style="margin:0 6px;">／</span>
+      <span class="seg">DMK 02:35</span><span class="arrow">→</span><span class="seg">KHH 07:05</span>
     </div>
   </div>
-  <div class="scroll-hint">Scroll</div>
-</section>
+</header>
 
-<!-- THEME STRIP -->
-<section class="theme-strip">
-  <div class="theme-item">
-    <div class="theme-day">Fri 5/1</div>
-    <div class="theme-title">抵達大阪</div>
-    <div class="theme-sub">飯店入住 / 道頓堀逛街</div>
-  </div>
-  <div class="theme-item">
-    <div class="theme-day">Sat 5/2</div>
-    <div class="theme-title">心齋橋 & 道頓堀</div>
-    <div class="theme-sub">美食巡禮與購物</div>
-  </div>
-  <div class="theme-item">
-    <div class="theme-day">Sun 5/3</div>
-    <div class="theme-title">奈良一日遊</div>
-    <div class="theme-sub">鹿公園 / 東大寺</div>
-  </div>
-  <div class="theme-item">
-    <div class="theme-day">Mon 5/4</div>
-    <div class="theme-title">大阪城 & 天守閣</div>
-    <div class="theme-sub">文化歷史巡禮</div>
-  </div>
-  <div class="theme-item">
-    <div class="theme-day">Tue 5/5</div>
-    <div class="theme-title">返程</div>
-    <div class="theme-sub">最後購物 / 回台灣</div>
-  </div>
-</section>
+<div class="shard-strip"></div>
 
-<!-- DAYS -->
-<div class="days-container">
-  <!-- Day 1 -->
-  <div class="day-card">
-    <div class="day-number">
-      <div class="day-dot"></div>
-      <div class="day-num-text">5/1 Fri</div>
-    </div>
-    <div class="day-content">
-      <div class="day-date">Day 1</div>
-      <div class="day-title">抵達大阪・本町</div>
-      <div class="day-subtitle">入住飯店 / 逛街 / 晚餐</div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="tl-time">09:00</div>
-          <div>
-            <div class="tl-place highlight">關西國際機場</div>
-            <div class="tl-note">抵達，搭乘利木津巴士前往本町</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="tl-time">12:00</div>
-          <div>
-            <div class="tl-place">午餐</div>
-            <div class="tl-note">本町附近拉麵店</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="tl-time">15:00</div>
-          <div>
-            <div class="tl-place">飯店入住</div>
-            <div class="tl-note">放置行李，稍作休息</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="tl-time">18:00</div>
-          <div>
-            <div class="tl-place">晚餐</div>
-            <div class="tl-note">道頓堀串燒 / 壽司</div>
-          </div>
-        </div>
+<main class="wrap">
+
+  <div class="section" style="padding-top:0;"></div>
+
+  <section class="day">
+    <div class="tier">TIER 0 · 抵岸</div>
+    <div class="day-date">10月8日（四）</div>
+    <h2 style="margin-bottom:6px;">入夜抵達</h2>
+    <div class="day-theme">先囤貨，再安頓——行李箱還在，戰利品有地方去</div>
+    <div class="log">
+      <div class="entry">
+        <span class="time">21:20</span>
+        <div class="what">DMK 廊曼機場降落</div>
+        <div class="note">入境查驗後領託運行李，這段抓20-30分鐘緩衝。</div>
+      </div>
+      <div class="entry">
+        <span class="time">22:00</span>
+        <div class="what">Grab 前往飯店</div>
+        <div class="note">車程約30分鐘，車資約250–300泰銖。</div>
+      </div>
+      <div class="entry">
+        <span class="time">22:30 前後</span>
+        <div class="what">抵達 The Twin Towers Hotel</div>
+        <div class="note">先辦入住、放下行李箱，卸下一身的移動感。</div>
+      </div>
+      <div class="entry">
+        <span class="time">23:00</span>
+        <div class="what">Grab 前往 Asia Hotel</div>
+        <div class="note">距離約1.5公里，車程約10分鐘，車資約60–80泰銖。</div>
+      </div>
+      <div class="entry">
+        <span class="time">23:15–00:30</span>
+        <div class="what">Amber — Asian Casual Dining</div>
+        <div class="note">Asia Hotel大廳，4.8★，24小時營業。結合Asia Hotel知名的中式與越式餐廳，加上泰式與國際菜色，選擇多、環境舒適。當初沒選這間飯店，改用另一種方式造訪。</div>
+      </div>
+      <div class="entry">
+        <span class="time">00:45 前後</span>
+        <div class="what">Grab 返回飯店</div>
+        <div class="note">車程約10分鐘，直接休息。</div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Day 2 -->
-  <div class="day-card">
-    <div class="day-number">
-      <div class="day-dot"></div>
-      <div class="day-num-text">5/2 Sat</div>
-    </div>
-    <div class="day-content">
-      <div class="day-date">Day 2</div>
-      <div class="day-title">道頓堀 & 心齋橋</div>
-      <div class="day-subtitle">美食巡禮與購物</div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="tl-time">10:00</div>
-          <div>
-            <div class="tl-place highlight">心齋橋商店街</div>
-            <div class="tl-note">逛街購物，品嚐當地小吃</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="tl-time">12:30</div>
-          <div>
-            <div class="tl-place">午餐</div>
-            <div class="tl-note">道頓堀章魚燒 / 河豚料理</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="tl-time">15:00</div>
-          <div>
-            <div class="tl-place">道頓堀河邊</div>
-            <div class="tl-note">拍照 / 遊河景觀</div>
-          </div>
-        </div>
+  <div class="shard-strip dense" style="margin-top:56px;"></div>
+
+  <section class="day">
+    <div class="tier">TIER 1 · 老城軸線</div>
+    <div class="day-date">10月9日（五）</div>
+    <h2 style="margin-bottom:6px;">臥佛寺至鄭王廟，河西岸再登城市天際</h2>
+    <div class="day-theme">老城主線加一趟高島屋，晚上收在瑪哈納功的燈火</div>
+    <div class="log">
+      <div class="entry">
+        <span class="time">08:00–09:15</span>
+        <div class="what">臥佛寺 Wat Pho</div>
+        <div class="note">開放08:00–18:30，先來這裡人潮最少。46公尺臥佛與古法按摩發源地，殿內珍珠母貝雕刻值得細看。門票300泰銖。</div>
+      </div>
+      <div class="entry">
+        <span class="time">09:15–09:30</span>
+        <div class="what">步行至大皇宮</div>
+        <div class="note">兩個景點步行可達，約10分鐘。</div>
+      </div>
+      <div class="entry">
+        <span class="time">09:30–11:30</span>
+        <div class="what">大皇宮 The Grand Palace · 玉佛寺 Wat Phra Kaew</div>
+        <div class="note">開放08:30–15:30，這個時段去不趕，服裝規定：長褲、有袖上衣、包鞋。套票500泰銖，含玉佛寺與紡織博物館。</div>
+      </div>
+      <div class="entry">
+        <span class="time">11:30–11:45</span>
+        <div class="what">步行至 Tha Tien 碼頭 → 渡輪過河</div>
+        <div class="note">船程約5分鐘，單程約5泰銖。</div>
+      </div>
+      <div class="entry">
+        <span class="time">11:45–13:00</span>
+        <div class="what">鄭王廟 Wat Arun</div>
+        <div class="note">開放08:30–17:30，門票200泰銖含礦泉水。塔身以碎瓷片與貝殼鑲嵌而成——這趟行程的視覺主題正取自此處，這個時段人潮比清晨或黃昏都少。</div>
+      </div>
+      <div class="entry">
+        <span class="time">13:00–13:30</span>
+        <div class="what">Grab 前往 ICONSIAM</div>
+        <div class="note">沿河而下，車程約25-30分鐘，車資約120-150泰銖。</div>
+      </div>
+      <div class="entry">
+        <span class="time">13:30–15:30</span>
+        <div class="what">午餐 · ICONSIAM · 暹羅高島屋 Siam Takashimaya</div>
+        <div class="note">SookSiam室內水上市場解決午餐，順道逛暹羅高島屋。</div>
+      </div>
+      <div class="entry">
+        <span class="time">15:30–15:45</span>
+        <div class="what">ICONSIAM 免費接駁船 → Ratchawong N5 碼頭</div>
+        <div class="note">4號碼頭搭船，直接開往Ratchawong N5碼頭，船程約10-15分鐘，不用繞路過橋。</div>
+      </div>
+      <div class="entry">
+        <span class="time">16:00</span>
+        <div class="what">Grab 返回 The Twin Towers Hotel</div>
+        <div class="note">N5碼頭離飯店很近，車程約10分鐘。</div>
+      </div>
+      <div class="entry">
+        <span class="time">16:15–17:00</span>
+        <div class="what">回房梳洗</div>
+        <div class="note">把一整天的汗與濕氣沖掉。</div>
+      </div>
+      <div class="entry">
+        <span class="time">17:00</span>
+        <div class="what">Grab 前往馬里安曼印度廟</div>
+        <div class="note">車程約10-15分鐘。</div>
+      </div>
+      <div class="entry">
+        <span class="time">17:15–17:45</span>
+        <div class="what">馬里安曼印度廟 Sri Maha Mariamman Temple</div>
+        <div class="note">南印度風格建築，色彩鮮豔的神像雕刻，殿內禁止拍照。4.7★，13,986則評論。</div>
+      </div>
+      <div class="entry">
+        <span class="time">18:00–20:30</span>
+        <div class="what">王權瑪哈納功大廈 · SkyWalk × King Power 免稅店</div>
+        <div class="note">步行約0.6公里可達，兩地相鄰。78樓玻璃地板SkyWalk能同時看到日落與夜景燈光亮起（建議先在KKday／Klook買票，比現場880泰銖便宜）；樓內King Power免稅店是泰國最大免稅集團的旗艦據點，時間分配到現場再看。4.7★，29,748則評論。</div>
+      </div>
+      <div class="entry">
+        <span class="time">20:45</span>
+        <div class="what">步行至 25 Degrees Burger Bar</div>
+        <div class="note">距離約5-10分鐘路程，兩地相鄰不用叫車。</div>
+      </div>
+      <div class="entry">
+        <span class="time">21:00</span>
+        <div class="what">晚餐 · 25 Degrees Burger Bar</div>
+        <div class="note">24小時營業，4.5★，3,858則評論，美式漢堡酒吧。取代Eagle Nest，作為這天的收尾。</div>
+      </div>
+      <div class="entry">
+        <span class="time">22:30 前後</span>
+        <div class="what">Grab 返回飯店</div>
+        <div class="note">結束這天的老城軸線。</div>
       </div>
     </div>
+  </section>
+
+  <div class="shard-strip dense" style="margin-top:56px;"></div>
+
+  <section class="day">
+    <div class="tier">TIER 2 · 制高與收尾</div>
+    <div class="day-date">10月10日（六）</div>
+    <h2 style="margin-bottom:6px;">金山寺、Kastel一夜、離岸前</h2>
+    <div class="day-theme">清晨最後一座廟，午後換陣地過夜，晚上從容出發</div>
+    <div class="log">
+      <div class="entry">
+        <span class="time">07:30</span>
+        <div class="what">Grab 前往金山寺 Wat Saket（Golden Mount）</div>
+        <div class="note">飯店距金山寺約3公里，車程約15分鐘、車資約80–100泰銖。開放時間08:00–17:00。</div>
+      </div>
+      <div class="entry">
+        <span class="time">07:45–08:45</span>
+        <div class="what">金山寺</div>
+        <div class="note">爬上人工山丘的塔頂（318階），可俯瞰整個老曼谷天際線，作為老城主線的制高總結。</div>
+      </div>
+      <div class="entry">
+        <span class="time">09:00</span>
+        <div class="what">Grab 前往朱拉隆功大學百年紀念公園</div>
+        <div class="note">車程約10分鐘。全天開放05:00–22:00。</div>
+      </div>
+      <div class="entry">
+        <span class="time">09:15–10:00</span>
+        <div class="what">朱拉隆功大學校園 · 百年紀念公園</div>
+        <div class="note">泰國第一學府，清晨校園安靜、光線好，適合走走拍照。</div>
+      </div>
+      <div class="entry">
+        <span class="time">10:15</span>
+        <div class="what">Grab 返回 The Twin Towers Hotel</div>
+        <div class="note">距離很近，車程約5分鐘。</div>
+      </div>
+      <div class="entry">
+        <span class="time">10:30 前後</span>
+        <div class="what">飯店退房</div>
+        <div class="note">行李箱裡的Big C戰利品跟著走，隨身背包＋手提袋直接背著繼續下半天。</div>
+      </div>
+      <div class="entry">
+        <span class="time">10:45</span>
+        <div class="what">Grab 前往 Kastel Bangkok Hotel</div>
+        <div class="note">距離約3.3公里，車程約15分鐘、車資約90-120泰銖。已訂10/10-10/11整晚房型（ORD0031794203，高級雙床房，NT$1,032）。注意：評論提到Grab司機不易找到飯店入口，可能要走到大馬路上會合。</div>
+      </div>
+      <div class="entry">
+        <span class="time">11:00</span>
+        <div class="what">Kastel 寄放行李</div>
+        <div class="note">標準入住時間14:00後才開放，先到櫃檯說要寄放行李，輕裝出門。</div>
+      </div>
+      <div class="entry">
+        <span class="time">11:30</span>
+        <div class="what">Grab 前往 Big C Ratchadamri</div>
+        <div class="note">距離約1.9公里，車程約10分鐘、車資約60-80泰銖。</div>
+      </div>
+      <div class="entry">
+        <span class="time">11:45–13:45</span>
+        <div class="what">Big C Ratchadamri（含午餐）</div>
+        <div class="note">泰式零食、伴手禮、藥妝一次買齊，午餐也在館內或周邊解決。託運行李額度的主力戰場。</div>
+      </div>
+      <div class="entry">
+        <span class="time">14:00–15:00</span>
+        <div class="what">正式入住 Kastel · 第一次洗澡</div>
+        <div class="note">4.5★，229則評論，法式風格裝潢。戰利品先放進房間，沖個澡重啟。</div>
+      </div>
+      <div class="entry">
+        <span class="time">15:00</span>
+        <div class="what">Grab 前往 CentralWorld</div>
+        <div class="note">距離約1.9公里，車程約10分鐘、車資約60-80泰銖。</div>
+      </div>
+      <div class="entry">
+        <span class="time">15:15–18:15</span>
+        <div class="what">CentralWorld</div>
+        <div class="note">曼谷第九大購物中心，伊勢丹、ZEN百貨、世貿中心三館互通，時間充裕慢慢逛。</div>
+      </div>
+      <div class="entry">
+        <span class="time">18:30–20:00</span>
+        <div class="what">Sato San Rooftop Bar</div>
+        <div class="note">Moxy Bangkok Ratchaprasong 32樓，步行可達，5.0★，2,435則評論，曼谷天際線夜景。這是整趟行程的壓軸——不去機場貴賓室了，爽玩到最後一刻。</div>
+      </div>
+      <div class="entry">
+        <span class="time">20:15</span>
+        <div class="what">Grab 返回 Kastel</div>
+        <div class="note">車程約10分鐘。</div>
+      </div>
+      <div class="entry">
+        <span class="time">20:15–21:30</span>
+        <div class="what">整備 · 第二次梳洗</div>
+        <div class="note">戰利品一次裝進行李箱，沖掉一整天的汗，換上乾淨衣服準備搭紅眼班機。</div>
+      </div>
+      <div class="entry">
+        <span class="time">21:30</span>
+        <div class="what">Grab 前往 DMK</div>
+        <div class="note">Kastel距機場約21km，車資約260-300泰銖。無託運行李重量限制（已加購20kg）。</div>
+      </div>
+      <div class="entry">
+        <span class="time">22:15 後</span>
+        <div class="what">機場免稅店 · 安檢後座位區</div>
+        <div class="note">不訂貴賓室，直接逛機場免稅店（訂單截圖裡那組「滿千折300」還在），剩下時間在候機區自由活動，撐到02:35登機。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="depart-card">
+    <span class="eyebrow">TIER 3 · 離岸</span>
+    <div class="flight-row">
+      <span><span class="code">DMK</span> 02:35</span>
+      <span class="arrow">→</span>
+      <span><span class="code">KHH</span> 07:05</span>
+    </div>
   </div>
 
-  <!-- Day 3 -->
-  <div class="day-card">
-    <div class="day-number">
-      <div class="day-dot"></div>
-      <div class="day-num-text">5/3 Sun</div>
-    </div>
-    <div class="day-content">
-      <div class="day-date">Day 3</div>
-      <div class="day-title">奈良一日遊</div>
-      <div class="day-subtitle">文化巡禮與自然景觀</div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="tl-time">09:00</div>
-          <div>
-            <div class="tl-place highlight">奈良公園</div>
-            <div class="tl-note">與奈良鹿互動拍照</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="tl-time">11:00</div>
-          <div>
-            <div class="tl-place">東大寺</div>
-            <div class="tl-note">參觀大佛與古建築</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="tl-time">13:00</div>
-          <div>
-            <div class="tl-place">午餐</div>
-            <div (以下省略，可照此結構完成 5 天)
+</main>
+
+<footer>
+  <span class="mark">卍</span>
+  瓷片碎裂重組成塔——這趟老城之旅，也是如此拼起來的。
+</footer>
+
+</body>
+</html>
